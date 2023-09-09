@@ -7,7 +7,7 @@ import {
   WiStrongWind,
 } from "react-icons/wi";
 
-const API_KEY = "06ea5751f949676b8c4f8bc13cd89e9c";
+const env = process.env.NEXT_PUBLIC_ANALYTICS_ID;
 
 interface WeatherData {
   main: {
@@ -44,7 +44,7 @@ export default function Home({ weatherData }: WeatherProps) {
 
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=pt&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=pt&appid=${env}`
       );
       const data: WeatherData = response.data;
 
